@@ -2,15 +2,10 @@
 This API allows you to subscribe to topics and publish
 
 ## Table of Contents
-1. <a href="#hosted-app">Link to Hosted App</a>
-4. <a href="#application-features">Application Features</a>
-5. <a href="#how-to-use">How To Use</a>
-6. <a href="#author">Author</a>
-7. <a href="#license">License</a>
-
-
-## Link to Hosted App
-* [API link](http://business-search-api-2.herokuapp.com)
+1. <a href="#application-features">Application Features</a>
+2. <a href="#how-to-use">How To Use</a>
+3. <a href="#author">Author</a>
+4. <a href="#license">License</a>
 
 ## Tech Stack Used
 

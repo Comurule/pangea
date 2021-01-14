@@ -13,7 +13,8 @@
     "lint-fix": "eslint -c .eslintrc.js --ext .ts ./src --fix",
     "prettier": "prettier --write 'src/**/*.ts'",
     "prettier-check": "prettier -l 'src/**/*.ts'",
-    "start": "node dist/server.js",
+    "build": "tsc --outDir ./dist",
+    "start": "npm run build && node dist/server.js",
     "dev": "tsc-watch --outDir ./dist --onSuccess 'node ./dist/server.js'"
   },
   "dependencies": {
