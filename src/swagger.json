@@ -1,0 +1,147 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Pangea",
+      "description": "Pangea publish and subscribe API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://127.0.0.1:9000/v1"
+      }
+    ],
+    "paths": {
+      "/subscribe/{topic}": {
+        "post": {
+          "parameters": {
+            "in": "path",
+            "name": "topic",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          "description": "Subcription Endpoint",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "url"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "example": "http://127.0.0.1:9000/v1/subscribe/users"
+                    }
+                  }
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "201": {
+              "description": "Successfully subscribes to topic",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "example": "http://127.0.0.1:9000/v1/subscribe/users"
+                      },
+                      "topic": {
+                        "type": "string",
+                        "example": "updates"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Invalid URL: httpe"
+                      },
+                      "success": {
+                        "type": "boolean",
+                        "example": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/publish/{topic}": {
+        "post": {
+          "description": "Endpoint for publishing to a given set of subscribers",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Successfully publishes to users subscribers",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Success"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Failure"
+                      },
+                      "success": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "detail": {
+                        "type": "string",
+                        "example": "\"message\" must be of type object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

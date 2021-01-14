@@ -15,7 +15,7 @@ async function publisher(req: Request, res: Response) {
     await publishToSubscribers(publisherParams);
     return res.status(200).json({
       success: true,
-      message: "Successfully subscribes to topic",
+      message: `Successfully publishes to ${topic} subscribers`,
       topic,
       data: message
     });

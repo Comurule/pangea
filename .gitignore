@@ -27,3 +27,6 @@ typings/
 
 # Generate output
 dist
+
+# Log files
+setup.logs

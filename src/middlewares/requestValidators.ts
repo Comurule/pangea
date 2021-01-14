@@ -5,7 +5,7 @@ export function urlValidator(req: Request, res: Response, next: NextFunction) {
   try {
     const { url } = req.body;
     const urlData = new URL(url);
-    
+
     if(urlData.origin === url || urlData.href === url || urlData.hostname === url ||  urlData.host === url){
       return next();
     }
@@ -27,9 +27,7 @@ export async function publishRequestValidator(
   try {
     await joi
       .object()
-      .keys({})
-      .required()
-      .unknown(true)
+      .keys({ message: joi.object().required(), url: joi.string().required()})
       .validateAsync(req.body);
 
     return next();

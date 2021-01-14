@@ -1,9 +1,11 @@
 import express, { Request, Response } from "express";
 import logger from "./utils/logger";
 import morgan from "morgan";
+import swaggerUi from 'swagger-ui-express';
 import * as dotenv from "dotenv";
 import { subscribeRoutes, publishRoutes } from "./routes/v1/";
 import { router as healthRouter } from "./routes/health";
+import swaggerDocument from './swagger.json';
 
 dotenv.config();
 
@@ -30,7 +32,7 @@ app.use(express.json());
 
 // Define Route
 const VERSION = "v1";
-
+app.use(`${VERSION}/api-doc`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(`/${VERSION}/subscribe`, subscribeRoutes);
 app.use(`/${VERSION}/publish`, publishRoutes);
 // health check
