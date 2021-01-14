@@ -92,7 +92,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                        "type": "JSON",
+                        "example": "{\"name\": \"chidimma\"}"
+                      }
+                  }
                 }
               }
             },
@@ -108,7 +114,7 @@
                     "properties": {
                       "message": {
                         "type": "string",
-                        "example": "Success"
+                        "example": "Successfully publishes to bar subscribers"
                       }
                     }
                   }

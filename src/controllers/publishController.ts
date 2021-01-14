@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import publishToSubscribers from "../services/publishService";
 import { PublisherParams } from "../types";
 
-async function publisher(req: Request, res: Response) {
+async function publisher(req: Request, res: Response): Promise<Response> {
   try {
     const { topic } = req.params;
     const { message } = req.body;

@@ -27,7 +27,7 @@ export async function publishRequestValidator(
   try {
     await joi
       .object()
-      .keys({ message: joi.object().required(), url: joi.string().required()})
+      .keys({ message: joi.object().required() })
       .validateAsync(req.body);
 
     return next();
