@@ -1,9 +1,9 @@
-const { Router } = require('express');
-const { publish } = require('../controllers/publish');
-const { validatePublishRequest } = require('../middleware/validation');
+import { Router } from "express";
+import { publishRequestValidator } from "../../middlewares/requestValidators";
+import publishController from "../../controllers/publishController";
 
-const publishRouter = new Router();
+const router = Router();
 
-publishRouter.post('/:topic', validatePublishRequest, publish);
+router.post("/:topic", publishRequestValidator, publishController);
 
-export default publishRouter;
+export default router;

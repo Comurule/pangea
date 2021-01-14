@@ -1,7 +1,4 @@
-import publishRoutes from './publishRoutes';
-import subscribeRoutes from './subscribeRoutes';
+import publishRoutes from "./publishRoutes";
+import subscribeRoutes from "./subscribeRoutes";
 
-export {
-    subscribeRoutes,
-    publishRoutes,
-}
+export { subscribeRoutes, publishRoutes };

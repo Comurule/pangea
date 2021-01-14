@@ -1,9 +1,8 @@
-const { Router } = require('express');
-const { subscribe } = require('../controllers/subscribe');
-const { validateSubscriptionRequest } = require('../middleware/validation');
+import { Router } from "express";
+import { urlValidator } from "../../middlewares/requestValidators";
+import subscribeController from "../../controllers/subscribeController";
 
-const subscribeRouter = new Router();
+const router = Router();
 
-subscribeRouter.post('/:topic', validateSubscriptionRequest, subscribe);
-
-export default subscribeRouter;
+router.post("/:topic", urlValidator, subscribeController);
+export default router;
